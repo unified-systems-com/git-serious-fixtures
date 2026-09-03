@@ -1,0 +1,10 @@
+# FIXTURE — see README. The same action at a branch. Expected: USES_ACTION pin_kind=branch.
+name: fixture-branch-pin
+on:
+  workflow_dispatch:
+jobs:
+  never:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: unified-systems-com/git-serious-fixtures/actions/hello@main

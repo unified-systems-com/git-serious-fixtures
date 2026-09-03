@@ -1,0 +1,16 @@
+# FIXTURE — see README. The most-cited incident shape: a privileged trigger, the PR head checked
+# out, event text interpolated into a shell step. The job never runs (`if: false`); the shape is
+# what scanners and the declared-job model must see. Expected: zizmor dangerous-triggers +
+# template-injection on this job; workflow_job.checkout_ref set.
+name: fixture-pull-request-target
+on:
+  pull_request_target:
+jobs:
+  never:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: echo "${{ github.event.pull_request.title }}"

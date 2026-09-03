@@ -1,0 +1,10 @@
+# FIXTURE — see README. A ref that exists as neither tag nor branch. Expected: resolution=unresolved.
+name: fixture-unresolved-pin
+on:
+  workflow_dispatch:
+jobs:
+  never:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: unified-systems-com/git-serious-fixtures/actions/hello@does-not-exist

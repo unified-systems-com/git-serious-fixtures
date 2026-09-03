@@ -1,0 +1,14 @@
+# FIXTURE — see README. A version-tag reference to an action with a published advisory
+# (actions/download-artifact < 4.1.7, CVE-2024-42471). The job never runs (`if: false`) and
+# would download nothing if it did. Expected: one Dependabot alert, ecosystem GitHub Actions.
+name: fixture-dependabot-actions-alert
+on:
+  workflow_dispatch:
+jobs:
+  never:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: nothing

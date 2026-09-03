@@ -1,0 +1,8 @@
+# FIXTURE — the composite action the pins in .github/workflows point at. Does nothing.
+name: hello
+description: A no-op composite action that exists to be referenced at a tag, a branch, and a ref that does not exist.
+runs:
+  using: composite
+  steps:
+    - run: echo hello
+      shell: bash

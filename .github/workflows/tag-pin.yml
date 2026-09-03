@@ -1,0 +1,11 @@
+# FIXTURE — see README. This repository's own composite action, referenced at a tag we control.
+# Expected: USES_ACTION pin_kind=tag, resolved from the config layer. Moving `v1` is the drift test.
+name: fixture-tag-pin
+on:
+  workflow_dispatch:
+jobs:
+  never:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: unified-systems-com/git-serious-fixtures/actions/hello@v1
